@@ -1,6 +1,5 @@
 package com.tensquare.recruit.dao;
 
-import com.tensquare.recruit.entity.Enterprise;
 import com.tensquare.recruit.entity.Recruit;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
