@@ -8,6 +8,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "tb_label")
 public class Label implements Serializable {
+    private static final long serialVersionUID = -5391296569243236291L;
     @Id
     private String id;
     //标签名称
