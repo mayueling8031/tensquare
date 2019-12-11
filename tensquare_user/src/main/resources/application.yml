@@ -1,13 +1,18 @@
 server:
-  port: 9002
+  port: 9008
 spring:
   application:
     name: tensquare-base
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/tensquare_recruit
+    url: jdbc:mysql://localhost:3306/tensquare_user
     username: root
     password: admin
   jpa:
     database: mysql
     show-sql: true
+#jwt密钥
+jwt:
+  config:
+    key: itcast
+    title: 360000

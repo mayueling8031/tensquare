@@ -6,12 +6,14 @@ import entity.Result;
 import entity.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import util.BaseExceptionHandler;
+
 import java.util.List;
 
 @RestController
 @CrossOrigin
 @RequestMapping("/label")
-public class LabelController extends BaseExceptionHandler{
+public class LabelController extends BaseExceptionHandler {
 
     @Autowired
     private LabelService service;

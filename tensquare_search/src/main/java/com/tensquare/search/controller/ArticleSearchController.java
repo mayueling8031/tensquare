@@ -8,11 +8,12 @@ import entity.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
+import util.BaseExceptionHandler;
 
 @RestController
 @CrossOrigin
 @RequestMapping("/article")
-public class ArticleSearchController {
+public class ArticleSearchController extends BaseExceptionHandler {
     @Autowired
     private ArticleSearchService searchService;
 

@@ -8,11 +8,12 @@ import entity.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
+import util.BaseExceptionHandler;
 
 @RestController
 @CrossOrigin
 @RequestMapping("/spit")
-public class SpitController {
+public class SpitController extends BaseExceptionHandler {
     @Autowired
     private SpitService spitService;
 

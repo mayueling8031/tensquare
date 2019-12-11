@@ -6,13 +6,14 @@ import entity.Result;
 import entity.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import util.BaseExceptionHandler;
 
 import java.util.List;
 
 @RestController
 @CrossOrigin
 @RequestMapping("/comment")
-public class CommentController extends BaseExceptionHandler{
+public class CommentController extends BaseExceptionHandler {
     @Autowired
     private CommentService service;
 
