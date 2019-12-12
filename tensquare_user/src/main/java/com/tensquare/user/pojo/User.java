@@ -154,4 +154,26 @@ public class User {
   public void setFollowcount(String followcount) {
     this.followcount = followcount;
   }
+
+  @Override
+  public String toString() {
+    return "User{" +
+            "id='" + id + '\'' +
+            ", mobile='" + mobile + '\'' +
+            ", password='" + password + '\'' +
+            ", nickname='" + nickname + '\'' +
+            ", sex='" + sex + '\'' +
+            ", birthday=" + birthday +
+            ", avatar='" + avatar + '\'' +
+            ", email='" + email + '\'' +
+            ", regdate=" + regdate +
+            ", updatedate=" + updatedate +
+            ", lastdate=" + lastdate +
+            ", online='" + online + '\'' +
+            ", interest='" + interest + '\'' +
+            ", personality='" + personality + '\'' +
+            ", fanscount='" + fanscount + '\'' +
+            ", followcount='" + followcount + '\'' +
+            '}';
+  }
 }

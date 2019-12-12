@@ -22,7 +22,7 @@ public class UserService {
      *
      * @param user
      */
-    public void add(User user,String code) {
+    public void add(User user) {
         //主键值
         user.setId(idWorker.nextId() + "");
         //加密后的密码
@@ -31,7 +31,9 @@ public class UserService {
         userDao.save(user);
     }
 
-
+    public void deleteById(String id){
+        userDao.deleteById(id);
+    }
 
     /**
      * 根据手机号和密码查询用户

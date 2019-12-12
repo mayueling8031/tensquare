@@ -2,7 +2,7 @@ server:
   port: 9004
 spring:
   application:
-    name: tensquare-base
+    name: tensquare-article
   data:
     mongodb:
         host: 127.0.0.1
@@ -17,3 +17,9 @@ spring:
     database: mysql
     show-sql: true
 
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:6868/eureka
+  instance:
+    prefer-ip-address: true

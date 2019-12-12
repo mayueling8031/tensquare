@@ -26,7 +26,6 @@ public class AdminController extends BaseExceptionHandler {
     @RequestMapping(value = "/save",method = RequestMethod.POST)
     public Result save(@RequestBody Admin admin){
         logger.info(TAG+admin);
-        System.out.println(admin);
         adminService.add(admin);
         return new  Result(true,StatusCode.OK,"注册成功");
     }
