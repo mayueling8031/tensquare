@@ -1,5 +1,6 @@
 package com.tensquare.qa.controller;
 
+import com.tensquare.qa.client.LabelClient;
 import com.tensquare.qa.entity.Problem;
 import com.tensquare.qa.service.ProblemService;
 import entity.PageResult;
@@ -10,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
+import util.BaseExceptionHandler;
 
 @RestController
 @CrossOrigin
@@ -20,6 +22,17 @@ public class ProblemController extends BaseExceptionHandler {
     @Autowired
     private ProblemService problemService;
 
+    @Autowired
+    private LabelClient labelClient;
+
+    /**
+     * 微服务测试
+     */
+    @RequestMapping(value = "/label/{labelId}")
+    public Result findLabelById(@PathVariable("labelId") String labelId){
+        Result result = labelClient.findById(labelId);
+        return result;
+    }
     /**
      * 根据标签ID查询最新问题列表
      *
