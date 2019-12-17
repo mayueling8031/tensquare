@@ -1,16 +1,20 @@
 server:
-  port: 9003
+  port: 9010
 spring:
   application:
-    name: tensquare-qa
+    name: tensquare-friend
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/tensquare_qa
+    url: jdbc:mysql://localhost:3306/tensquare_friend
     username: root
     password: admin
   jpa:
     database: mysql
     show-sql: true
+
+jwt:
+  config:
+    key: itcast
 
 eureka:
   client:
@@ -18,6 +22,3 @@ eureka:
       defaultZone: http://127.0.0.1:6868/eureka
   instance:
     prefer-ip-address: true
-feign:
-  hystrix:
-    enabled: true

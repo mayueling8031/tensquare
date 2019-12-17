@@ -56,7 +56,7 @@ public class UserController extends BaseExceptionHandler {
      * @return
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public Result delete(@PathVariable String id) {
+    public Result delete(@PathVariable String id,HttpServletRequest request) {
         //获取请求头信息
         Claims claims = (Claims) request.getAttribute("admin_claims");
         if (claims == null) {
@@ -64,5 +64,25 @@ public class UserController extends BaseExceptionHandler {
         }
         userService.deleteById(id);
         return new Result(true, StatusCode.OK, "删除成功");
+    }
+
+    /**
+     * 更新粉丝数
+     * @param userId
+     * @param x
+     */
+    @RequestMapping(value = "/incfans/{userId}/{x}", method = RequestMethod.POST)
+    public void incFansCount(@PathVariable String userId,@PathVariable int x) {
+        userService.incFansCount(userId,x);
+    }
+
+    /**
+     * 更新关注数
+     * @param userId
+     * @param x
+     */
+    @RequestMapping(value = "/incfollow/{userId}/{x}", method = RequestMethod.POST)
+    public void incFollowCount(@PathVariable String userId,@PathVariable int x) {
+        userService.incFollowCount(userId,x);
     }
 }
