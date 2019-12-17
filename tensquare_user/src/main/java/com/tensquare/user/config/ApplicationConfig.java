@@ -1,19 +1,24 @@
 package com.tensquare.user.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
-import util.JwtUtil;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-public class ApplicationConfig extends WebMvcConfigurationSupport {
-    @Autowired
-    private JwtFilter jwtFilter;
+public class ApplicationConfig implements WebMvcConfigurer {
 
+    @Override
     public void addInterceptors(InterceptorRegistry registry){
-        registry.addInterceptor(jwtFilter).
-                addPathPatterns("*/**").
-                excludePathPatterns("/**/login");
+        InterceptorRegistration registration = registry.addInterceptor(jwtFilter());
+        registration.addPathPatterns("/**");
+        registration.excludePathPatterns("/","/login","/error","/static/**","/logout");
+    }
+
+
+    @Bean
+    public JwtFilter jwtFilter(){
+        return new JwtFilter();
     }
 }
