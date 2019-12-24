@@ -49,9 +49,17 @@ public class FriendService {
      * @param userId
      * @param friendId
      */
-    public void addNoFriend(String userId, String friendId) {
-        NoFriend noFriend = new NoFriend(userId, friendId);
+    public int addNoFriend(String userId, String friendId) {
+        NoFriend noFriend = noFriendDao.findByUserIdAndFriendid(userId, friendId);
+        //判断如果用户已经添加了这个非好友，则不进行任何操作，返回0
+        if (noFriend ==null) {
+            return 0;
+        }
+        noFriend = new NoFriend();
+        noFriend.setUserid(userId);
+        noFriend.setFriendid(friendId);
         noFriendDao.save(noFriend);
+        return 1;
     }
 
     /**
