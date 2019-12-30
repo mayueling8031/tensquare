@@ -9,7 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>tensquare_manager</artifactId>
+    <artifactId>tensquare_web</artifactId>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -28,6 +29,4 @@
             <scope>compile</scope>
         </dependency>
     </dependencies>
-
-
 </project>
