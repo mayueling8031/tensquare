@@ -1,0 +1,21 @@
+server:
+  port: 12000
+
+spring:
+  application:
+    name: tensquare-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/mayueling/tensquare-config.git
+          skipsslvalidation: true
+          username: 297298217@qq.com
+          password: ma8031175
+  rabbitmq:
+    host: 127.0.0.1
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh

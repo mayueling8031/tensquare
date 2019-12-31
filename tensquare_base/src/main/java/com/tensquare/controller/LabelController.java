@@ -6,6 +6,8 @@ import entity.PageResult;
 import entity.Result;
 import entity.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 import util.BaseExceptionHandler;
@@ -16,13 +18,18 @@ import java.util.Map;
 @RestController
 @CrossOrigin
 @RequestMapping("/label")
+@RefreshScope
 public class LabelController extends BaseExceptionHandler {
 
     @Autowired
     private LabelService service;
 
+    @Value("${sms.ip}")
+    private String ip;
+
     @RequestMapping(method = RequestMethod.GET)
     public Result findAll(){
+        System.out.println(ip);
         return new Result(true, StatusCode.OK,"查询成功",service.findAll());
     }
 
