@@ -16,7 +16,7 @@ public class JwtUtil {
 
     private String key ;
 
-    private long ttl ;//一个小时
+    private long title ;//一个小时
 
     public String getKey() {
         return key;
@@ -26,12 +26,12 @@ public class JwtUtil {
         this.key = key;
     }
 
-    public long getTtl() {
-        return ttl;
+    public long getTitle() {
+        return title;
     }
 
-    public void setTtl(long ttl) {
-        this.ttl = ttl;
+    public void setTitle(long title) {
+        this.title = title;
     }
 
     /**
@@ -48,8 +48,8 @@ public class JwtUtil {
                 .setSubject(subject)
                 .setIssuedAt(now)
                 .signWith(SignatureAlgorithm.HS256, key).claim("roles", roles);
-        if (ttl > 0) {
-            builder.setExpiration( new Date( nowMillis + ttl));
+        if (title > 0) {
+            builder.setExpiration( new Date( nowMillis + title));
         }
         return builder.compact();
     }
